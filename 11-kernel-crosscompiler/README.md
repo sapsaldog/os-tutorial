@@ -54,15 +54,35 @@ cd binutils-build
 make all install 2>&1 | tee make.log
 ```
 
-gcc
+gcc - for mac
 ---
 ```sh
 cd /tmp/src
-curl -O http://mirror.bbln.org/gcc/releases/gcc-4.9.1/gcc-4.9.1.tar.bz2
-tar xf gcc-4.9.1.tar.bz2
+curl -O http://ftp.gnu.org/gnu/gcc/gcc-7.2.0/gcc-7.2.0.tar.xz
+tar xf gcc-7.2.0.tar.xz
 mkdir gcc-build
 cd gcc-build
-../gcc-4.9.1/configure --target=$TARGET --prefix="$PREFIX" --disable-nls --disable-libssp --enable-languages=c --without-headers
+../gcc-7.2.0/configure --target=$TARGET --prefix="$PREFIX" --disable-nls --disable-libssp --enable-languages=c --without-headers
+make all-gcc 
+make all-target-libgcc 
+make install-gcc 
+make install-target-libgcc 
+```
+
+gcc - for ubuntu
+---
+```sh
+- dependancy
+sudo apt-get install libgmp-dev
+sudo apt-get install libmpfr-dev
+sudo apt-get install libmpc-dev
+- gcc
+cd /tmp/src
+curl -O http://ftp.gnu.org/gnu/gcc/gcc-7.2.0/gcc-7.2.0.tar.xz
+tar xf gcc-7.2.0.tar.xz
+mkdir gcc-build
+cd gcc-build
+../gcc-7.2.0/configure --target=$TARGET --prefix="$PREFIX" --disable-nls --disable-libssp --enable-languages=c --without-headers
 make all-gcc 
 make all-target-libgcc 
 make install-gcc 
