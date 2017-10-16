@@ -82,11 +82,11 @@ curl -O http://ftp.gnu.org/gnu/gcc/gcc-7.2.0/gcc-7.2.0.tar.xz
 tar xf gcc-7.2.0.tar.xz
 mkdir gcc-build
 cd gcc-build
-../gcc-7.2.0/configure --target=$TARGET --prefix="$PREFIX" --disable-nls --disable-libssp --enable-languages=c --without-headers
-make all-gcc 
-make all-target-libgcc 
-make install-gcc 
-make install-target-libgcc 
+sudo ../gcc-7.2.0/configure --target=$TARGET --prefix="$PREFIX" --disable-nls --disable-libssp --enable-languages=c --without-headers
+sudo make all-gcc 
+sudo make all-target-libgcc 
+sudo make install-gcc 
+sudo make install-target-libgcc 
 ```
 
 That's it! You should have all the GNU binutils and the compiler at `/usr/local/i386elfgcc/bin`, prefixed by `i386-elf-` to avoid
