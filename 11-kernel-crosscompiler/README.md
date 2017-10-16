@@ -20,13 +20,21 @@ you didn't do it on lesson 00, and get those packages with `brew install`
 - libmpc
 - gcc
 
+```sh
+- dependancy install for ubuntu
+sudo apt-get install libgmp-dev libmpfr-dev libmpc-dev
+- dependancy install for mac
+brew update
+brew install gcc
+```
+
 Yes, we will need `gcc` to build our cross-compiled `gcc`, especially on a Mac where gcc has been deprecated for `clang`
 
 Once installed, find where your packaged gcc is (remember, not clang) and export it. For example:
 
 ```
-export CC=/usr/local/bin/gcc-4.9
-export LD=/usr/local/bin/gcc-4.9
+export CC=/usr/local/Cellar/gcc/7.2.0
+export LD=/usr/local/Cellar/gcc/7.2.0
 ```
 
 We will need to build binutils and a cross-compiled gcc, and we will put them into `/usr/local/i386elfgcc`, so
@@ -72,10 +80,6 @@ make install-target-libgcc
 gcc - for ubuntu
 ---
 ```sh
-- dependancy
-sudo apt-get install libgmp-dev
-sudo apt-get install libmpfr-dev
-sudo apt-get install libmpc-dev
 - gcc
 cd /tmp/src
 curl -O http://ftp.gnu.org/gnu/gcc/gcc-7.2.0/gcc-7.2.0.tar.xz
