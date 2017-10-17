@@ -20,15 +20,15 @@ on Homebrew's repos)
 
 ```sh
 cd /tmp/src
-curl -O http://ftp.rediris.es/mirror/GNU/gnu/gdb/gdb-7.8.tar.gz
-tar xf gdb-7.8.tar.gz
+curl -O http://ftp.gnu.org/gnu/gdb/gdb-8.0.tar.xz
+tar xf gdb-8.0.tar.gz
 mkdir gdb-build
 cd gdb-build
 export PREFIX="/usr/local/i386elfgcc"
 export TARGET=i386-elf
-../gdb-7.8/configure --target="$TARGET" --prefix="$PREFIX" --program-prefix=i386-elf-
-make
-make install
+sudo ../gdb-8.0/configure --target="$TARGET" --prefix="$PREFIX" --program-prefix=i386-elf-
+sudo make
+sudo make install
 ```
 
 Check out the Makefile target `make debug`. This target uses builds `kernel.elf`, which
