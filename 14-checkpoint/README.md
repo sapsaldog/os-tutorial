@@ -21,7 +21,7 @@ on Homebrew's repos)
 ```sh
 cd /tmp/src
 curl -O http://ftp.gnu.org/gnu/gdb/gdb-8.0.tar.xz
-tar xf gdb-8.0.tar.gz
+tar xf gdb-8.0.tar.xz
 mkdir gdb-build
 cd gdb-build
 export PREFIX="/usr/local/i386elfgcc"
